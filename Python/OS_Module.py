@@ -1,5 +1,7 @@
 """Learning about the OS module in the Python."""
 
+# Resource https://docs.python.org/3/library/os.html
+
 import os
 
 # Create a New Directory
