@@ -46,7 +46,7 @@ async def main():
     # task2 = asyncio.create_task(fetch_data())
 
     # Running tasks Parallely
-    asyncio.gather(
+    await asyncio.gather(
         download_image(),
         fetch_data()
     )
