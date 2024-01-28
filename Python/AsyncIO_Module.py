@@ -8,6 +8,7 @@ async def download_image():
     """Function to download an image."""
 
     print("Downloading an Image")
+    await asyncio.sleep(5)
     image_url = "https://blogger.googleusercontent.com/img/a/AVvXsEhqzeTOTJm2J-wrSe9kAj3DlAphY5RzFw3W4xf25OPT1AEktfD1Z70sYBclrMDeuD6jAeZzJPByXgH272iG3hxS7AGppznCwS1yzioR77m4J03rVdFLmL3TtLjVmUfaCk-p1D3Jdkj6fp-9U64Tnqg1EMKT9OXpclfVjKrYeqT-OJWdnq9JBh_8ZZKWpsM=w640-h360"
 
     response = requests.get(image_url, timeout=60)
@@ -21,6 +22,7 @@ async def fetch_data():
     """Function to fetch data from REST API"""
 
     print("Fetching the Data")
+    await asyncio.sleep(2)
     api_url = "https://dummyjson.com/products"
 
     response = requests.get(api_url, timeout=60)
