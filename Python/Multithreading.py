@@ -18,6 +18,8 @@ def download_image():
     if response.status_code == 200:
         with open("./Python/images/image.jpg", "wb") as file:
             file.write(response.content)
+            
+    print("Finished downloading an Image")
 
 
 def fetch_data():
@@ -39,6 +41,8 @@ def fetch_data():
 
         with open("./Python/images/products.csv", "w", encoding="utf-8") as file:
             file.writelines(rows)
+            
+        print("Finished fetching the data")
 
 def main():
     """Basic Multithreading"""
