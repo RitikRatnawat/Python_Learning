@@ -16,7 +16,7 @@ with open("myfile.txt", "w", encoding="utf-8") as file:
 with open("myfile.txt", "a", encoding="utf-8") as file:
     file.write("\nFour Line")
     
-# Seeking and Teling in a File
+# Seeking and Telling in a File
 with open("myfile.txt", "r", encoding="utf-8") as file:
     # Move to 10th byte of the file
     file.seek(10)
