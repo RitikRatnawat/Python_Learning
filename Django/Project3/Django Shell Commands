@@ -1,3 +1,9 @@
 shell -> Command to enter into the Django shell
 
 Reference: https://docs.djangoproject.com/en/5.0/ref/django-admin/
+
+CRUD Operations :
+Create - > model_name.objects.create() -> Creates a row in the database.
+Read - > model_name.objects.get() or model_name.objects.filter() -> Reads a row from the database.
+Update - > model_name.objects.update() -> Update a row in the database.
+Delete - > model_name.objects.delete() -> Deletes a row from the database.
