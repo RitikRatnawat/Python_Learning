@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--cnwln^078hw*e^@!jc_k#83wahpqy8s##g)w5euiz5n6+b2c@
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# CSRF_TRUSTED_ORIGINS = ['https://a49b-59-91-134-98.ngrok-free.app']
 
 # Application definition
 
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fontawesomefree',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -115,7 +117,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIR = {
+    os.path.join(BASE_DIR, 'public/static')
+}
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "public/static")
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
