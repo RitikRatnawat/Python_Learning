@@ -37,9 +37,44 @@ class Student(models.Model):
 
 
 """
-Department.objects.all().order_by("<attribute_name>") returns queryset of objects in ascending order.
-Department.objects.all().order_by("-<attribute_name>") returns queryset of objects in descending order when we put 
+<model_name>.objects.all().order_by("<attribute_name>") returns queryset of objects in ascending order.
+<model_name>.objects.all().order_by("-<attribute_name>") returns queryset of objects in descending order when we put 
                                                         -(minus) sign before the attribute name.
-Department.objects.filter(attribute_name = value) returns a filtered queryset of objects and also works with field
-                                                        lookups such as __in, __gte, __lt, __exists etc.
+<model_name>.objects.get(<attribute_name> = <value>) returns queryset of objects having attribute values equal to 
+                                                        provided value.
+<model_name>.objects.filter(<attribute_name> = <value>) returns a filtered queryset of objects and also works with field
+                                                        lookups
+<model_name>.objects.exclude(<attribute_name> = <value>) returns a queryset of objects in which objects fulfilling the 
+                                                        condition will be excluded and also works with field lookups.
+                                                        
+Some lookups list :
+__in
+__gt
+__lt
+__gte
+__lte
+__exists
+__startswith
+__endswith
+__icontains
+__<foreign_key_model>__<lookups> Format to access the foreign key with the lookups
+
+queryset.exists() returns a boolean indicating whether the queryset has objects matching the condition or not.
+queryset.distinct(attribute_name) returns a queryset of objects having distinct list of attribute names
+queryset.reverse() returns a queryset of objects in reverse order
+queryset.values() returns a list of dicts with all the data.
+queryset.values_list(list of attribute names) returns a list of dicts of data with only specified attributes.
+
+Aggregated Functions :
+<model_name>.objects.aggregate(Avg(<attribute_name>)) returns an average of all the values of the attribute.
+<model_name>.objects.aggregate(Max(<attribute_name>)) returns a maximum of all the values of the attribute.
+<model_name>.objects.aggregate(Max(<attribute_name>)) returns a minimum of all the values of the attribute.
+<model_name>.objects.aggregate(Sum(<attribute_name>)) returns a sum of all the values of the attribute.
+
+Annotated Functions :
+<model_name>.objects.values(<attribute_name>).annotate(Count(<attribute_name>)) returns a count of all the values of the
+                                                groups grouped by <attribute_name>.
+<model_name>.objects.values(<list of attribute_names>).annotate(Count(<attribute_name1>), Avg(<attribute_name2>)) 
+                                                performs a count of all the values of the groups grouped by 
+                                                <attribute_name1> with average values of <attribute_name2>
 """
