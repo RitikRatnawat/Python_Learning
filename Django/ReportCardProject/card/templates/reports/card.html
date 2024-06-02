@@ -1,0 +1,27 @@
+{% extends 'reports/base.html' %}
+
+{% block content %}
+<div class="container mt-5 col-5">
+    <h5 class="mb-3">Rank : </h5>
+    <h5 class="mb-3">Student Name : {{student_name}}</h5>
+    <h5 class="mb-5">Total Marks : {{total_marks.total_marks}} / 500</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">#</th>
+          <th scope="col">Subject</th>
+          <th scope="col" class="text-center">Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for marks in student_marks %}
+        <tr>
+          <th class="text-center">{{forloop.counter}}</th>
+          <th>{{marks.subject.subject_name}}</th>
+          <td class="text-center">{{marks.marks}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock content %}

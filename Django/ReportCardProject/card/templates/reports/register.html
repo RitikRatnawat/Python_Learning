@@ -1,0 +1,39 @@
+{% extends 'reports/base.html' %}
+{% block content %}
+
+    <div class="container mt-5">
+        <form class="col-6 mx-auto card p-5 shadow-lg" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <h2>Register to the Report Card App</h2>
+          <hr>
+          {% if messages %}
+            {% for message in messages %}
+              {% if message.tags == "error" %}
+                <div class="alert alert-danger" role="alert">{{message}}</div>
+              {% else %}
+                <div class="alert alert-success" role="alert">{{message}}</div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <div class="mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" required>
+          </div>
+          <div class="mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" required>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <p>Already have an account <a href="/login/">Login</a></p>
+          <button type="submit" class="btn btn-success">Register</button>
+        </form>
+    </div>
+
+{% endblock content %}
