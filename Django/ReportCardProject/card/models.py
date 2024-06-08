@@ -45,7 +45,7 @@ class Student(models.Model):
 
 
 class SubjectMark(models.Model):
-    student = models.ForeignKey(Student, related_name="student1_id", on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, related_name="studentmarks", on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     marks = models.IntegerField()
 
@@ -55,3 +55,18 @@ class SubjectMark(models.Model):
     class Meta:
         ordering = ["student"]
         unique_together = ['student', 'subject']
+
+
+class StudentRank(models.Model):
+    student = models.ForeignKey(Student, related_name="studentranks", on_delete=models.CASCADE)
+    rank = models.IntegerField()
+    date_of_generation = models.DateField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.student.student_name} {self.rank}"
+
+    class Meta:
+        ordering = ["rank"]
+        unique_together = ['rank', 'date_of_generation']
+
+

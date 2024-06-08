@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q, Sum
-from .models import Student, SubjectMark
+from .models import Student, SubjectMark, StudentRank
 
 
 def login_page(request):
@@ -81,10 +81,12 @@ def get_student_marks(request, student_id):
     queryset = SubjectMark.objects.filter(student__student_id__student_id=student_id)
     student_name = queryset[0].student.student_name
     total_marks = queryset.aggregate(total_marks=Sum("marks"))
+    current_rank = queryset.first().student.studentranks.first().rank
 
     context = {
         "student_name": student_name,
         "total_marks": total_marks,
-        "student_marks": queryset
+        "student_marks": queryset,
+        "rank": current_rank
     }
     return render(request, "reports/card.html", context=context)
