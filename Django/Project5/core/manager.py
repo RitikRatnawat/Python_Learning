@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import BaseUserManager
+from django.db import models
 
 
 class CustomUserManager(BaseUserManager):
@@ -19,3 +20,9 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_active", True)
 
         return self.create_user(phone_number, password, **extra_fields)
+
+
+class StudentManager(models.Manager):
+
+    def get_queryset(self):
+        return super(StudentManager, self).get_queryset().filter(is_deleted=False)
