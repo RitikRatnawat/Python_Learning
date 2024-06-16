@@ -5,7 +5,7 @@ from .models import Department, Student, StudentID
 fake = Faker()
 
 
-def seed_db(n = 10):
+def seed_db(n=10):
 
     departments = Department.objects.all()
 
