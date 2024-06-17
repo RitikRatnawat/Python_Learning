@@ -11,7 +11,7 @@
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center" style="height: 50rem">
+    <div class="d-flex justify-content-evenly align-items-center" style="height: 50rem">
         <div class="card mx-auto" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Send Email</h5>
@@ -19,7 +19,13 @@
             <a href="{% url 'send_email' %}" class="btn btn-success">Send Email</a>
           </div>
         </div>
+        <div class="card mx-auto" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Send Email with Attachment</h5>
+            <p class="card-text">Sending an Email using Django Server</p>
+            <a href="{% url 'send_email_attachment' %}" class="btn btn-success">Send Email with Attachment</a>
+          </div>
+        </div>
     </div>
-
 </body>
 </html>
