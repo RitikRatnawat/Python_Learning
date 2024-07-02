@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Employee
@@ -38,3 +38,11 @@ class EmployeeUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('employee_detail', kwargs={'pk': self.object.pk})
+
+
+class EmployeeDeleteView(DeleteView):
+
+    model = Employee
+
+    def get_success_url(self):
+        return reverse('employee_list')

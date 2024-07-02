@@ -4,7 +4,7 @@
     <!-- Display Objects -->
         <li>{{ object.first_name }} {{ object.last_name }}</li>
         <li>{{ object.email }}</li>
-
+        <li><a href="{% url 'employee_delete' object.id %}">Delete</a> </li>
     <hr/>
     <!-- If object_list is empty  -->
     {% empty %}
