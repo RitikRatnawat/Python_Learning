@@ -1,0 +1,12 @@
+<form action = "{% url 'student_form' %}" method = "POST">
+    {% csrf_token %}
+    <label>Student Name: </label>
+    {{ student_form.name }} <br><br>
+    <label>Student Email: </label>
+    {{ student_form.email }} <br><br>
+    <label>Student Age: </label>
+    {{ student_form.age }} <br><br>
+    <label>Student Address: </label> <br>
+    {{ student_form.address }} <br><br>
+    <input type="submit" value="Submit">
+</form>
