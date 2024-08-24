@@ -19,7 +19,7 @@ class Product(models.Model):
 # Reference : https://docs.djangoproject.com/en/5.0/topics/db/models/
 # Reference : https://docs.djangoproject.com/en/5.0/topics/migrations/
 """
-    makemigrations : These command creates a state with all changes need to br applied
+    makemigrations : These command creates a state with all changes need to be applied
                         to the database and whenever a new migration is generated, these 
                         command runs all the migrations internally and match with the
                         migrations available in the database.
