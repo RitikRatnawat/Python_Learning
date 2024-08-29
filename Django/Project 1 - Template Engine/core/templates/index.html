@@ -41,4 +41,6 @@
         {% endif %}
     </p>
     <hr>
+    <!-- With only option with "with" attribute in include will remove access to global context for sub-template -->
+    {% include 'learnings.html' with new_learning1="Including One template to another with Context" only%}
 {% endblock content %}
