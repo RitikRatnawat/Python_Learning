@@ -20,8 +20,12 @@ class NameListFilter(admin.SimpleListFilter):
 
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ["id", "student_name", "student_email", "student_password"]
+    list_display = ["id", "student_name", "student_email", "student_password", "created_at"]
     list_filter = [NameListFilter]
+    ordering = ["student_name"]
+    search_fields = ["student_name", "student_email"]
+    date_hierarchy = "created_at"
+
 
 
 admin.site.register(Student, StudentAdmin)
