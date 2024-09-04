@@ -1,0 +1,10 @@
+<form action = "{% url 'widgets_form' %}" method = "POST">
+    {% for field in form.visible_fields %}
+        <label>{{ field.label_tag }}</label>
+        {{ field }} <br><br>
+    {% endfor %}
+    {% for field in form.hidden_fields %}
+        {{ field }} <br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>

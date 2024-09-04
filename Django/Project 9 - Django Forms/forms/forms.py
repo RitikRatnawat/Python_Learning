@@ -24,3 +24,15 @@ class DynamicForm(forms.Form):
     email = forms.EmailField(max_length=100)
     mobile = forms.IntegerField()
     key = forms.CharField(widget=forms.HiddenInput())
+
+
+# docs : https://docs.djangoproject.com/en/5.1/ref/forms/widgets/
+class WidgetsForm(forms.Form):
+    first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'cls1'}))
+    last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'cls1'}))
+    email = forms.EmailField(max_length=100, widget=forms.EmailInput())
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput())
+    age = forms.IntegerField(widget=forms.NumberInput())
+    is_adult = forms.BooleanField(widget=forms.CheckboxInput())
+    address = forms.CharField(max_length=500, widget=forms.Textarea())
+    hidden = forms.CharField(max_length=50, widget=forms.HiddenInput())

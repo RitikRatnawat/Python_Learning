@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import FormView
-from .forms import UserForm, StudentForm, DynamicForm
+from .forms import UserForm, StudentForm, DynamicForm, WidgetsForm
 
 
 # Create your views here.
@@ -57,3 +57,13 @@ def dynamic_form(request):
                "form4": form4, "form5": form5, "form6": form6,
                "form7": form7, "form8": form8}
     return render(request, 'forms/dynamic_form.html', context=context)
+
+
+def widget_form(request):
+    form = WidgetsForm()
+
+    if request.method == 'POST':
+        print(request.POST)
+
+    context = {"form": form}
+    return render(request, 'forms/widget_form.html', context=context)
