@@ -63,3 +63,16 @@
     {{ form7.as_p }}
     <input type="submit" value="Submit">
 </form>
+<hr>
+<h4>Looping over the Form fields</h4>
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    <!-- We are using visible fields here to not include hidden fields -->
+    {% for field in form8.visible_fields %}
+        <label>{{ field.label_tag }}</label>
+        {{ field }} <br><br>
+    {% endfor %}
+    {% for field in form8.hidden_fields %}
+        {{ field }} <br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>

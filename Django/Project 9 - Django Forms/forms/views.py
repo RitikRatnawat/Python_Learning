@@ -48,11 +48,12 @@ def dynamic_form(request):
                                  "email": "groves.paul@example.com"}) # Configure initial values for the form fields.
     form7 = DynamicForm() # Ordering form fields
     form7.order_fields(["email", "first_name", "last_name"])
+    form8 = DynamicForm(label_suffix=" -> ")
 
     if request.method == 'POST':
         print(request.POST)
 
     context = {"form1": form1, "form2": form2, "form3": form3,
                "form4": form4, "form5": form5, "form6": form6,
-               "form7": form7}
+               "form7": form7, "form8": form8}
     return render(request, 'forms/dynamic_form.html', context=context)
