@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import FormView
-from .forms import UserForm, StudentForm
+from .forms import UserForm, StudentForm, DynamicForm
 
 
 # Create your views here.
@@ -35,3 +35,16 @@ class StudentFormView(FormView):
         print(student)
 
         return super(StudentFormView, self).form_valid(form)
+
+
+def dynamic_form(request):
+    form1 = DynamicForm(auto_id="some_%s") # These format create id of a form field with specified prefix or suffix.
+    form2 = DynamicForm(auto_id=True) # These format create id of a form field with same as name of the field.
+    form3 = DynamicForm(auto_id=False) # These format removes id from the form field.
+    form4 = DynamicForm(auto_id="forms") # These format also act same as True format as value is True.
+
+    if request.method == 'POST':
+        print(request.POST)
+
+    context = {"form1": form1, "form2": form2, "form3": form3, "form4": form4}
+    return render(request, 'forms/dynamic_form.html', context=context)

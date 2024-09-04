@@ -16,3 +16,8 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = "__all__"
+
+
+class DynamicForm(forms.Form):
+    name = forms.CharField(max_length=100, help_text="Enter your Name")
+    email = forms.EmailField(max_length=100, help_text="Enter your Email")

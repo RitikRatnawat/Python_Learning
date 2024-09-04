@@ -1,0 +1,35 @@
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    {% csrf_token %}
+    <label>Name: </label>
+    {{ form1.name }} <br><br>
+    <label>Email: </label>
+    {{ form1.email }} <br><br>
+    <input type="submit" value="Submit">
+</form>
+<hr>
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    {% csrf_token %}
+    <label>Name: </label>
+    {{ form2.name }} <br><br>
+    <label>Email: </label>
+    {{ form2.email }} <br><br>
+    <input type="submit" value="Submit">
+</form>
+<hr>
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    {% csrf_token %}
+    <label>Name: </label>
+    {{ form3.name }} <br><br>
+    <label>Email: </label>
+    {{ form3.email }} <br><br>
+    <input type="submit" value="Submit">
+</form>
+<hr>
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    {% csrf_token %}
+    <label>Name: </label>
+    {{ form4.name }} <br><br>
+    <label>Email: </label>
+    {{ form4.email }} <br><br>
+    <input type="submit" value="Submit">
+</form>
