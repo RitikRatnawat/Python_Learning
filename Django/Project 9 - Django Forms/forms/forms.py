@@ -19,5 +19,5 @@ class StudentForm(forms.ModelForm):
 
 
 class DynamicForm(forms.Form):
-    name = forms.CharField(max_length=100, help_text="Enter your Name")
-    email = forms.EmailField(max_length=100, help_text="Enter your Email")
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField(max_length=100)

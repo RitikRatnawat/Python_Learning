@@ -33,3 +33,13 @@
     {{ form4.email }} <br><br>
     <input type="submit" value="Submit">
 </form>
+<hr>
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    {{ form5.as_p }}
+    <input type="submit" value="Submit">
+</form>
+<hr>
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    {{ form6.as_p }}
+    <input type="submit" value="Submit">
+</form>

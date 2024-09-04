@@ -42,9 +42,11 @@ def dynamic_form(request):
     form2 = DynamicForm(auto_id=True) # These format create id of a form field with same as name of the field.
     form3 = DynamicForm(auto_id=False) # These format removes id from the form field.
     form4 = DynamicForm(auto_id="forms") # These format also act same as True format as value is True.
+    form5 = DynamicForm(label_suffix=' -> ') # Configure labels for the form fields.
+    form6 = DynamicForm(initial={"name": "Paul Groves", "email": "groves.paul@example.com"}) # Configure initial values for the form fields.
 
     if request.method == 'POST':
         print(request.POST)
 
-    context = {"form1": form1, "form2": form2, "form3": form3, "form4": form4}
+    context = {"form1": form1, "form2": form2, "form3": form3, "form4": form4, "form5": form5, "form6": form6}
     return render(request, 'forms/dynamic_form.html', context=context)
