@@ -1,45 +1,65 @@
+<h4>Form with auto_id in "prefix_%s" or "%s_suffix"</h4>
 <form action = "{% url 'dynamic_form' %}" method = "POST">
     {% csrf_token %}
-    <label>Name: </label>
-    {{ form1.name }} <br><br>
+    <label>First Name: </label>
+    {{ form1.first_name }} <br><br>
+    <label>Last Name: </label>
+    {{ form1.last_name }} <br><br>
     <label>Email: </label>
     {{ form1.email }} <br><br>
     <input type="submit" value="Submit">
 </form>
 <hr>
+<h4>Form with auto_id=True</h4>
 <form action = "{% url 'dynamic_form' %}" method = "POST">
     {% csrf_token %}
-    <label>Name: </label>
-    {{ form2.name }} <br><br>
+    <label>First Name: </label>
+    {{ form1.first_name }} <br><br>
+    <label>Last Name: </label>
+    {{ form1.last_name }} <br><br>
     <label>Email: </label>
-    {{ form2.email }} <br><br>
+    {{ form1.email }} <br><br>
     <input type="submit" value="Submit">
 </form>
 <hr>
+<h4>Form with auto_id=False</h4>
 <form action = "{% url 'dynamic_form' %}" method = "POST">
     {% csrf_token %}
-    <label>Name: </label>
-    {{ form3.name }} <br><br>
+    <label>First Name: </label>
+    {{ form1.first_name }} <br><br>
+    <label>Last Name: </label>
+    {{ form1.last_name }} <br><br>
     <label>Email: </label>
-    {{ form3.email }} <br><br>
+    {{ form1.email }} <br><br>
     <input type="submit" value="Submit">
 </form>
 <hr>
+<h4>Form with auto_id="any string value"</h4>
 <form action = "{% url 'dynamic_form' %}" method = "POST">
     {% csrf_token %}
-    <label>Name: </label>
-    {{ form4.name }} <br><br>
+    <label>First Name: </label>
+    {{ form1.first_name }} <br><br>
+    <label>Last Name: </label>
+    {{ form1.last_name }} <br><br>
     <label>Email: </label>
-    {{ form4.email }} <br><br>
+    {{ form1.email }} <br><br>
     <input type="submit" value="Submit">
 </form>
 <hr>
+<h4>Form with label_suffix</h4>
 <form action = "{% url 'dynamic_form' %}" method = "POST">
     {{ form5.as_p }}
     <input type="submit" value="Submit">
 </form>
 <hr>
+<h4>Form with initial values for the Form fields</h4>
 <form action = "{% url 'dynamic_form' %}" method = "POST">
     {{ form6.as_p }}
+    <input type="submit" value="Submit">
+</form>
+<hr>
+<h4>Ordering Form Fields</h4>
+<form action = "{% url 'dynamic_form' %}" method = "POST">
+    {{ form7.as_p }}
     <input type="submit" value="Submit">
 </form>
