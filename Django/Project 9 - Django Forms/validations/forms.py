@@ -19,3 +19,20 @@ class UserRegistration(forms.Form):
             raise forms.ValidationError("Name should not be the part of the password")
 
         return password_val
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        first_name = cleaned_data["first_name"]
+        if len(first_name) < 4:
+            raise forms.ValidationError("First name must be at least 4 characters")
+
+        last_name = cleaned_data["last_name"]
+        if len(last_name) < 4:
+            raise forms.ValidationError("Last name must be at lease 4 characters")
+
+        email = cleaned_data["email"]
+        if not email.endswith("example.com"):
+            raise forms.ValidationError("Not a valid email address")
+
+        return cleaned_data
