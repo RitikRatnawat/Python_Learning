@@ -14,6 +14,18 @@ class UserRegistration(forms.Form):
                                 validators=[validators.MinLengthValidator(4), validators.MaxLengthValidator(15)])
     email = forms.EmailField(max_length=50, validators=[validate_email_domain])
     password = forms.CharField(max_length=50, widget=forms.PasswordInput)
+    rpassword = forms.CharField(max_length=50, widget=forms.PasswordInput)
+
+    def clean(self):
+        cleaned_data = super(UserRegistration, self).clean()
+
+        password = cleaned_data['password']
+        rpassword = cleaned_data['rpassword']
+
+        if password != rpassword:
+            raise forms.ValidationError("Password mismatch")
+
+        return cleaned_data
 
     # def clean_password(self):
     #     password_val = self.cleaned_data['password']

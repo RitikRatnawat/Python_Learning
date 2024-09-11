@@ -10,6 +10,7 @@ def user_registration(request):
         if form.is_valid():
             print("Form Validated successfully")
             print(form.cleaned_data["first_name"], form.cleaned_data["last_name"])
+            print(form.cleaned_data["password"], form.cleaned_data["rpassword"])
 
     else:
         form = UserRegistration()
