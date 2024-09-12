@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Registration</title>
+        <style>
+            .error{
+                list-style-type: none;
+                color: red;
+                font-size: 15px;
+                margin: 2px;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Styling Form Errors</h2>
+        <hr/>
+        <form action = "{% url 'error_registration' %}" method = "POST" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                {{field.label_tag}}
+                {{ field }}
+                <span class="error">{{ field.errors | striptags }} </span> <br><br>
+
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
