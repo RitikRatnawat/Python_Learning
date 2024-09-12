@@ -8,6 +8,8 @@ def validate_email_domain(email):
 
 
 class UserRegistration(forms.Form):
+    error_css_class = "error"
+    required_css_class = "required"
     first_name = forms.CharField(max_length=50,
                                  validators=[validators.MinLengthValidator(4), validators.MaxLengthValidator(15)],
                                  error_messages={"required": "Enter Your First Name"})

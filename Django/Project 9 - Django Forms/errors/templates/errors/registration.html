@@ -12,6 +12,13 @@
                 margin: 2px;
                 padding: 0;
             }
+            .required{
+                list-style-type: none;
+                color: darkorange;
+                font-size: 15px;
+                margin: 2px;
+                padding: 0;
+            }
         </style>
     </head>
     <body>
@@ -24,7 +31,6 @@
                 {{field.label_tag}}
                 {{ field }}
                 <span class="error">{{ field.errors | striptags }} </span> <br><br>
-
             {% endfor %}
             <input type="submit" value="Submit">
         </form>
