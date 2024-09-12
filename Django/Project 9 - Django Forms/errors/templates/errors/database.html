@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Registration</title>
+        <style>
+            .error{
+                list-style-type: none;
+                color: red;
+                font-size: 15px;
+                margin: 2px;
+                padding: 0;
+            }
+            .required{
+                list-style-type: none;
+                color: darkorange;
+                font-size: 15px;
+                margin: 2px;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Styling Form Errors</h2>
+        <hr/>
+        <form action = "{% url 'user_database' %}" method = "POST" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
