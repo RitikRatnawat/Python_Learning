@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0">
+        <title>User Registration</title>
+        <style>
+            span{
+                display: block;
+            }
+
+            .success{
+                color: Green;
+                width: 400px;
+                margin-bottom: 5px;
+                padding: 5px 3px;
+                border: 1px solid green;
+                border-radius: 10px;
+            }
+
+            .error{
+                color: red;
+                width: 400px;
+                margin-bottom: 5px;
+                padding: 5px 3px;
+                border: 1px solid red;
+                border-radius: 10px;
+            }
+
+            .info{
+                color: blue;
+                width: 400px;
+                margin-bottom: 5px;
+                padding: 5px 3px;
+                border: 1px solid blue;
+                border-radius: 10px;
+            }
+
+            .debug{
+                color: black;
+                width: 400px;
+                margin-bottom: 5px;
+                padding: 5px 3px;
+                border: 1px solid black;
+                border-radius: 10px;
+            }
+
+            .question{
+                color: orange;
+                width: 400px;
+                margin-bottom: 5px;
+                padding: 5px 3px;
+                border: 1px solid orange;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags %}
+                    <span class={{ message.tags }}>{{ message }}</span>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <form method="post" action="{% url "register" %}" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Register"/>
+        </form>
+    </body>
+</html>
