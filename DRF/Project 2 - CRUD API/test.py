@@ -5,7 +5,7 @@ from faker import Faker
 fake = Faker()
 
 
-url = 'http://localhost:8000/api/student'
+url = 'http://localhost:8000/api/students'
 
 
 def get_student(id):
@@ -27,6 +27,18 @@ def add_student():
     print(response.json())
 
 
+def update_student(id):
+    data = {
+        "name": fake.name(),
+        "city": fake.city()
+    }
+
+    response = requests.put(f"{url}/{id}", json=data)
+    print(response.status_code)
+    print(response.json())
+
+
 if __name__ == '__main__':
     # get_student(6)
-    add_student()
+    # add_student()
+    update_student(8)
