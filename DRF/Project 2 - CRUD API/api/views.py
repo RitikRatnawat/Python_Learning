@@ -6,6 +6,16 @@ from .models import Student
 from .serializers import StudentSerializer
 
 
+def get_students(request):
+    try:
+        students = Student.objects.all()
+        sts_serializer = StudentSerializer(students, many=True)
+        return JsonResponse(sts_serializer.data, safe=False)
+
+    except Student.DoesNotExist:
+        return JsonResponse({"message": "No Students exists"})
+
+
 @csrf_exempt
 def get_or_update_student(request, id):
 
