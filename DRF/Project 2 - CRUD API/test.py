@@ -15,6 +15,13 @@ def get_student(id):
     print(response.json())
 
 
+def get_students():
+
+    response = requests.get(url)
+    print(response.status_code)
+    print(response.json())
+
+
 def add_student():
     data = {
         "name": fake.name(),
@@ -39,6 +46,7 @@ def update_student(id):
 
 
 if __name__ == '__main__':
+    get_students()
     # get_student(6)
     # add_student()
-    update_student(8)
+    # update_student(8)
