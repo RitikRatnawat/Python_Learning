@@ -17,7 +17,7 @@ def get_students(request):
 
 
 @csrf_exempt
-def get_or_update_student(request, id):
+def cud_student(request, id):
 
     if request.method == 'GET':
         try:
@@ -44,6 +44,21 @@ def get_or_update_student(request, id):
             response = {
                 "message": "Data updated successfully",
                 "updated_data": st_serializer.data
+            }
+
+            return JsonResponse(response)
+
+        except Student.DoesNotExist:
+            return JsonResponse({"message": "Student does not exist"})
+
+    if request.method == 'DELETE':
+
+        try:
+            student = Student.objects.get(id=id)
+            student.delete()
+
+            response = {
+                "message": "Data deleted successfully",
             }
 
             return JsonResponse(response)
