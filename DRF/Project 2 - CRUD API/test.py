@@ -45,8 +45,16 @@ def update_student(id):
     print(response.json())
 
 
+def delete_student(id):
+
+    response = requests.delete(f"{url}/{id}")
+    print(response.status_code)
+    print(response.json())
+
+
 if __name__ == '__main__':
-    get_students()
+    # get_students()
     # get_student(6)
     # add_student()
     # update_student(8)
+    delete_student(1)
