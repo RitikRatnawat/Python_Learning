@@ -14,7 +14,7 @@ if __name__ == "__main__":
         print(numbers.pop(), end=", ")
 
     # In the While loop : Example 2
-    foods = list()
+    foods = []
 
     print()
     while (food := input("what food do you like? : ")) != "quit":
