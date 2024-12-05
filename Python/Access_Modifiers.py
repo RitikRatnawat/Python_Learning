@@ -27,7 +27,6 @@ if __name__ == "__main__":
     # Can be accessed indirectly using Name mangling
     print(f"Employee Name : {emp._Employee__name}\n")
 
-
     # Protected variable can be accessed directly but convention used is the start with _
     print(f"Employee Salary : {emp._salary}\n")
 
