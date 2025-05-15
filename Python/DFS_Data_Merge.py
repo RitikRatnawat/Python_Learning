@@ -5,8 +5,8 @@ GRAPH_FULL = {
         'MpciPolicy': ('Grower_OID', 'MpciPolicy_GrowerOID')
     },
     'MpciPolicy': {
-        'MpciCoverage': ('MpciPolicy_OID', 'MpciCoverage _MpciPolicyOID'),
-        'SBI': ('MpciPolicy_0ID', 'SBI_MpciPolicyOID')
+        'MpciCoverage': ('MpciPolicy_OID', 'MpciCoverage_MpciPolicyOID'),
+        'SBI': ('MpciPolicy_OID', 'SBI_MpciPolicyOID')
     },
     'MpciCoverage': {
         'MpciPremiumLine': ('MpciCoverage_OID', 'MpciPremiumLine_MpciCoverageOID'),
@@ -14,17 +14,17 @@ GRAPH_FULL = {
         'AgrIncomeExpense': ('MpciCoverage_OID', 'AgrIncomeExpense_MpciCoverageOID')
     },
     'MpciPremiumLine': {
-        'MciPawQuestions': ('MpciPremiumLine_MpciPAWQuestionOID', 'MpciPawQuestions_OID'),
+        'MpciPawQuestions': ('MpciPremiumLine_MpciPAWQuestionOID', 'MpciPawQuestions_OID'),
         'APH': ('MpciPremiumLine_APHOID', 'APH_OID')
     },
     'MpciPawQuestions': {
-        'MpciPaw': ('MpciPawQuestions_OID', 'MpciPaw_MpciPAWQuestionOID')
+        'MpciPaw': ('MpciPawQuestions_OID', 'MpciPaw_MpciPAWQuestion_OID')
     },
     'APH': {
         'ProductionHistory': ('APH_OID', 'ProductionHistory_APHOID')
     },
     'AgrIncomeExpense': {
-        'AgrIncomeExpenseHistory': ('AgrIncomeExpense_OID', 'AgrIncomeExpenseHistory_AgrIncomeExpense0ID')
+        'AgrIncomeExpenseHistory': ('AgrIncomeExpense_OID', 'AgrIncomeExpenseHistory_AgrIncomeExpenseOID')
     }
 }
 
@@ -43,8 +43,6 @@ def join_graph_tables(base_df_name, graph, join_set=None):
         if (base_df_name, target_df_name) in join_set:
             continue
 
-        print((base_df_name, target_df_name))
-        join_set.add((base_df_name, target_df_name))
         # target_df = dataframes[target_df_name]
         # base_df = base_df.merge(target_df,
         #                 how=' left',
@@ -52,6 +50,8 @@ def join_graph_tables(base_df_name, graph, join_set=None):
 
         # base_df = join_graph_tables(target_df_name, base_df, graph, dataframes, join_set)
         join_graph_tables(target_df_name, graph, join_set)
+        print((base_df_name, target_df_name))
+        join_set.add((base_df_name, target_df_name))
 
     # return base_df
     return
