@@ -2,7 +2,7 @@
 
 GRAPH_FULL = {
     'Grower': {
-        'MpciPolicy': ('Grower _OID', 'MpciPolicy_GrowerOID')
+        'MpciPolicy': ('Grower_OID', 'MpciPolicy_GrowerOID')
     },
     'MpciPolicy': {
         'MpciCoverage': ('MpciPolicy_OID', 'MpciCoverage _MpciPolicyOID'),
@@ -39,7 +39,7 @@ def join_graph_tables(base_df_name, graph, join_set=None):
         # return base_df
         return
 
-    for target_df_name, (base_key, target_key) in graph[base_df_name] .items():
+    for target_df_name, (base_key, target_key) in graph[base_df_name].items():
         if (base_df_name, target_df_name) in join_set:
             continue
 
@@ -49,7 +49,7 @@ def join_graph_tables(base_df_name, graph, join_set=None):
         # base_df = base_df.merge(target_df,
         #                 how=' left',
         #                 left_on=base_key, right_on=target_key, suffixes=('', f'_{target_df_name.lower()}'))
-                                                    
+
         # base_df = join_graph_tables(target_df_name, base_df, graph, dataframes, join_set)
         join_graph_tables(target_df_name, graph, join_set)
 
