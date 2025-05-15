@@ -35,7 +35,7 @@ class Student(models.Model):
         ordering = ["student_name"]
         verbose_name = "student"
 
-
+# For Reference : https://docs.djangoproject.com/en/5.2/topics/db/queries/#field-lookups
 """
 <model_name>.objects.all().order_by("<attribute_name>") returns queryset of objects in ascending order.
 <model_name>.objects.all().order_by("-<attribute_name>") returns queryset of objects in descending order when we put 
@@ -53,7 +53,6 @@ __gt
 __lt
 __gte
 __lte
-__exists
 __startswith
 __endswith
 __icontains
