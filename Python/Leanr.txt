@@ -1,0 +1,24 @@
+1. Python Data structures
+2. Socket programming
+3. Python Collections
+4. OOPs in Python
+5. CSV module
+6. Datetime module
+7. functools
+8. hashlib
+9. itertools
+10. Iterators
+11. math module
+12. random module
+13. sys module
+14. uuid module
+15. numpy module
+16. array module
+17. Pickle module
+18. Struct module
+19. Websockets module
+20. OpenCV module
+21. AsyncIO module
+22. Enums
+23. Magic Methods
+24. Cryptography Algorithms in Python
